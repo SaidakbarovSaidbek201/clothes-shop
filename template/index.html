@@ -1,0 +1,266 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <!-- basic -->
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <!-- mobile metas -->
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+      <!-- site metas -->
+      <title>Beautiflie</title>
+      <meta name="keywords" content="">
+      <meta name="description" content="">
+      <meta name="author" content="">
+      <!-- bootstrap css -->
+      <link rel="stylesheet" type="text/css" href="/static/css/bootstrap.min.css">
+      <!-- style css -->
+      <link rel="stylesheet" type="text/css" href="/static/css/style.css">
+      <!-- Responsive-->
+      <link rel="stylesheet" href="/static/css/responsive.css">
+      <!-- fevicon -->
+      <link rel="icon" href="/static/images/fevicon.png" type="image/gif" />
+      <!-- Scrollbar Custom CSS -->
+      <link rel="stylesheet" href="/static/css/jquery.mCustomScrollbar.min.css">
+      <!-- Tweaks for older IEs-->
+      <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+      <!-- fonts -->
+      <link href="https://fonts.googleapis.com/css?family=Great+Vibes|Open+Sans:400,700&display=swap&subset=latin-ext" rel="stylesheet">
+      <!-- owl stylesheets --> 
+      <link rel="stylesheet" href="/static/css/owl.carousel.min.css">
+      <link rel="stylesheet" href="/static/css/owl.theme.default.min.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+      <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+   </head>
+   <body>
+      <!-- header section start -->
+      <div class="header_section" id="header">
+         <div class="container-fluid">
+            <nav class="navbar navbar-light bg-light justify-content-between">
+               <div id="mySidenav" class="sidenav">
+                  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                  <a href="#header">Home</a>
+                  <a href="#product">Products</a>
+                  <a href="#about">About</a>
+                  <a href="#contact">Contact</a>
+               </div>
+               <span class="toggle_icon" onclick="openNav()"><img src="/static/images/toggle-icon.png"></span>
+               <a class="logo" href="index.html"><img src="/static/images/logo.png"></a></a>
+               <form class="form-inline ">
+                  <div class="login_text">
+                     <ul>
+                        <li><a href="#"><img src="/static/images/user-icon.png"></a></li>
+                        <li><a href="#"><img src="/static/images/bag-icon.png"></a></li>
+                        <li><a href="#"><img src="/static/images/search-icon.png"></a></li>
+                     </ul>
+                  </div>
+               </form>
+            </nav>
+         </div>
+      </div>
+      <!-- header section end -->
+      <!-- banner section start -->
+      <div class="banner_section layout_padding">
+         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+               <div class="carousel-item active">
+                  <div class="container">
+                     <div class="row">
+                        <div class="col-sm-6">
+                           <h1 class="banner_taital">Beauty Kit</h1><br>
+                           <p class="banner_text">
+                              Мы предлагаем широкий ассортимент стильной и качественной одежды для женщин, мужчин и детей. От повседневных базовых вещей до модных трендов сезона — у нас вы найдёте всё, чтобы создать уникальный образ на любой случай. <br><br>
+                              ✨ Не пропустите! Регулярные акции и скидки на самые популярные модели. <br><br>
+                              
+                              Начните свой модный путь с нами сегодня!</p>
+                           <div class="read_bt"><a href="#">Buy Now</a></div>
+                        </div>
+                        <div class="col-sm-6">
+                           <div class="banner_img"><img src="https://files.oaiusercontent.com/file-5KvUTgEwTSW78ykyLdWkzz?se=2024-12-28T16%3A47%3A34Z&sp=r&sv=2024-08-04&sr=b&rscc=max-age%3D604800%2C%20immutable%2C%20private&rscd=attachment%3B%20filename%3D2182b2f4-9967-4a75-be8e-b858947b5871.webp&sig=4XKuSguFcCwwkb8zZI1Ip2mnEzmynd7WrLk3/a2PPdY%3D" style="margin-top: 50px;"></div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- banner section end -->
+      <!-- product section start -->
+      <div class="product_section layout_padding" id="product">
+         <div class="container">
+            <div class="row">
+               <div class="col-sm-12">
+                  <h1 class="product_taital">Наши продукты</h1>
+                  <p class="product_text">Очень хорошие и отличного качества и по честной цене</p>
+               </div>
+            </div>
+            <div class="product_section_2 layout_padding" style="display: flex; justify-content: space-between; flex-wrap: wrap;height: auto;">
+               {% for p in kiyim %}
+               <div class="row" >   
+                  <div class="col-lg-3 col-sm-6" style="height: auto;">
+                        <div class="product_box" style="width: 300px;height: auto;;" data-filter="{{p.category_id}}">
+                           <p class="lorem_text">{{p.description}}</p>
+                           <img src="{{p.rasmi}}" class="image_1" style="height: auto;">
+                           <h4 class="bursh_text">{{p.nomi}}</h4>
+                           <div class="btn_main">
+                              <div class="buy_bt">
+                                 <ul>
+                                    <li class="active"><a href="#">Buy Now</a></li>
+                                    <li><a href="#">Buy Now</a></li>
+                                 </ul>
+                              </div>
+                              <h3 class="price_text">Цена: {{p.prize}} so'm</h3>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               {% endfor %}
+            </div>
+         </div>
+      </div>
+      <div class="seemore_bt"><a href="https://terrapro.uz/">See More</a></div>
+      <!-- product section end -->
+      <!-- about section start -->
+      <div class="about_section layout_padding" id="about">
+         <div class="container">
+            <div class="about_section_main">
+               <div class="row">
+                  <div class="col-md-6">
+                     <div class="about_taital_main">
+                        <h1 class="about_taital">О нашем магазине одежд</h1>
+                        <p class="about_text">
+                           Добро пожаловать в наш интернет-магазин одежды! Здесь вы найдете стильные и качественные вещи, которые подчеркнут вашу индивидуальность и помогут создать идеальный образ. Мы предлагаем широкий выбор современных моделей, которые подойдут для любых случаев: от повседневной жизни до особых мероприятий. <br><br>
+                           
+                           Каждая деталь тщательно продумана, чтобы сочетать комфорт, практичность и актуальные модные тенденции. У нас вы легко сможете подобрать одежду, которая идеально подчеркнет вашу уникальность. Мы ценим ваше время, поэтому обеспечиваем удобный процесс выбора и быструю доставку. <br><br>
+                           
+                           Обновите свой гардероб с нами и сделайте каждый день немного стильнее!</p>
+                        <div class="readmore_bt"><a href="#">Read More</a></div>
+                     </div>
+                  </div>
+                  <div class="col-md-6" style="align-items: center;">
+                     <div><img src="https://images.pexels.com/photos/1488463/pexels-photo-1488463.jpeg" class="image_3" style="margin-top: 100px;"></div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- about section end -->
+      <!-- customer section start -->
+      
+      <!-- customer section end -->
+      <!-- contact section start -->
+      <div class="contact_section layout_padding" id="contact">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-6">
+                  <h1 class="contact_taital">Свяжитесь с нами </h1>
+                  <p class="contact_text">Если у вас возникли вопросы или предложения, вы можете связаться с нами по телефону, электронной почте или через социальные сети. Мы всегда готовы помочь и ответить на все ваши запросы. </p>
+               </div>
+               <div class="col-md-6">
+                  <div class="contact_main">
+                     <div class="contact_bt"><a href="#">Contact Form</a></div>
+                     <div class="newletter_bt"><a href="#">Newletter</a></div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="map_main">
+            <div class="map-responsive">
+               <iframe src="https://www.google.com/maps/embed/v1/place?key=AIzaSyA0s1a7phLN0iaD6-UE7m4qP-z21pH0eSc&amp;q=Eiffel+Tower+Paris+France" width="600" height="400" frameborder="0" style="border:0; width: 100%;" allowfullscreen=""></iframe>
+            </div>
+         </div>
+      </div>
+      <!-- contact section end -->
+      <!-- footer section start -->
+      <div class="footer_section layout_padding">
+         <div class="container">
+            <div class="footer_logo"><a href="index.html"><img src="/static/images/footer-logo.png"></a></div>
+            <div class="contact_section_2">
+               <div class="row">
+                  <div class="col-sm-4">
+                     <h3 class="address_text">Contact Us</h3>
+                     <div class="address_bt">
+                        <ul>
+                           <li>
+                              <a href="#">
+                              <i class="fa fa-map-marker" aria-hidden="true"></i><span class="padding_left10">Address : Loram Ipusm</span>
+                              </a>
+                           </li>
+                           <li>
+                              <a href="#">
+                              <i class="fa fa-phone" aria-hidden="true"></i><span class="padding_left10">Call : +01 1234567890</span>
+                              </a>
+                           </li>
+                           <li>
+                              <a href="#">
+                              <i class="fa fa-envelope" aria-hidden="true"></i><span class="padding_left10">Email : demo@gmail.com</span>
+                              </a>
+                           </li>
+                        </ul>
+                     </div>
+                  </div>
+                  <div class="col-sm-4">
+                     <div class="footer_logo_1"><a href="index.html"><img src="/static/images/footer-logo.png"></a></div>
+                     <p class="dummy_text">commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non</p>
+                  </div>
+                  <div class="col-sm-4">
+                     <div class="main">
+                        <h3 class="address_text">Best Products</h3>
+                        <p class="ipsum_text">dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non</p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="social_icon">
+               <ul>
+                  <li>
+                     <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                  </li>
+                  <li>
+                     <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                  </li>
+                  <li>
+                     <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                  </li>
+                  <li>
+                     <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                  </li>
+               </ul>
+            </div>
+         </div>
+      </div>
+      <!-- footer section end -->
+      <!-- copyright section start -->
+      <div class="copyright_section">
+         <div class="container">
+            <p class="copyright_text">2020 All Rights Reserved. Design by <a href="https://html.design">Free html  Templates</a></p>
+         </div>
+      </div>
+      <!-- copyright section end -->
+      <!-- Javascript files-->
+      <script src="/static/js/jquery.min.js"></script>
+      <script src="/static/js/popper.min.js"></script>
+      <script src="/static/js/bootstrap.bundle.min.js"></script>
+      <script src="/static/js/jquery-3.0.0.min.js"></script>
+      <script src="/static/js/plugin.js"></script>
+      <!-- sidebar -->
+      <script src="/static/js/jquery.mCustomScrollbar.concat.min.js"></script>
+      <script src="/static/js/custom.js"></script>
+      <!-- javascript --> 
+      <script src="/static/js/owl.carousel.js"></script>
+      <script src="/static/js/main.js"></script>
+      <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>  
+      <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
+      <script>
+         function openNav() {
+           document.getElementById("mySidenav").style.width = "100%";
+         }
+         
+         function closeNav() {
+           document.getElementById("mySidenav").style.width = "0";
+         }
+      </script> 
+   </body>
+</html>
