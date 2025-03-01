@@ -23,3 +23,25 @@ class Clothes(models.Model):
 
     def __str__(self):
         return self.nomi
+    
+class Cart(models.Model):
+    def add_product(self, product, quantity=1):
+        cart_item, created = CartItem.objects.get_or_create(cart=self, product=product)
+        if not created:
+            cart_item.quantity += quantity
+        cart_item.save()
+
+    def remove_product(self, product):
+        CartItem.objects.filter(cart=self, product=product).delete()
+
+class CartItem(models.Model):
+    cart = models.ForeignKey(Cart, related_name="items", on_delete=models.CASCADE)
+    product = models.ForeignKey(Clothes, on_delete=models.CASCADE)
+    quantity = models.PositiveIntegerField(default=1)
+
+    def get_total_price(self):
+        return self.product.price * self.quantity
+
+    def __str__(self):
+        return f"{self.quantity} x {self.product.name} in {self.cart.user.username}'s cart"
+    
